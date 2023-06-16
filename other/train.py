@@ -27,6 +27,8 @@ def train_model(model, criterion, optimizer, inputs, labels, writer, num_epochs=
             
             # Write to tensorboard
             writer.add_scalar('Loss/train', loss.item(), epoch * len(loader) + i)
+            if i%100==0:
+                print(f"loss= {loss.item()}")
 
         print(f'Epoch {epoch+1}/{num_epochs} Loss: {np.mean(np.array(losses))}')
 
